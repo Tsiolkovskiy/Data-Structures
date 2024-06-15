@@ -32,36 +32,73 @@ const restaurant = {
   },
   orderDelivery: function({starterIndex,mainIndex,time,address}){
     console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+  },
+
+  orderPasta: function(ing1, ing2, ing3){
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+
   }
 };
 
-restaurant.orderDelivery({
-  time: '22:30',
-  address: 'Via del Sole,21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+const ingredients = [prompt('Let\'s make pasta! Ingredient 1?' ), prompt('Ingredient 2'), prompt("Ingredient 3"),];
+console.log(ingredients);
+
+restaurant.orderPasta(...ingredients);
+
+const newRestaurant = {foundedIn: 1998, ...restaurant, founder: 'Guiseppe'};
+console.log(newRestaurant);
+
+const restaurantCopy={...restaurant};
+restaurantCopy.name = 'Ristorante Roma';
 
 
 
 
-const{name,openingHours,categories}=restaurant;
-console.log(name, openingHours,categories);
+const arr=[7,8,9];
+const badNewArr=[1,2, arr[0],arr[1], arr[2]];
+console.log(badNewArr);
 
-const{name:restaurantName, openingHours:hours, categories:tags}=restaurant;
-console.log(restaurantName, hours, tags);
+const newArr=[1,2,...arr];
+console.log(newArr);
 
-const{menu=[], starterMenu: starters=[]}=restaurant;
-console.log(menu,starters);
+console.log(...newArr);
+console.log(1,2,7,8,9);
 
-let a=111;
-let b = 999;
-const obj={a:23, b:7, c:14};
-({a,b}=obj);
-console.log(a,b);
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
 
-const {
-  fri:{
-    open:o,close:c},
-}=openingHours;
-console.log(o,c);
+const mainMenuCopy = [...restaurant.mainMenu];
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Via del Sole,21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
+
+
+
+
+// const{name,openingHours,categories}=restaurant;
+// console.log(name, openingHours,categories);
+
+// const{name:restaurantName, openingHours:hours, categories:tags}=restaurant;
+// console.log(restaurantName, hours, tags);
+
+// const{menu=[], starterMenu: starters=[]}=restaurant;
+// console.log(menu,starters);
+
+// let a=111;
+// let b = 999;
+// const obj={a:23, b:7, c:14};
+// ({a,b}=obj);
+// console.log(a,b);
+
+// const {
+//   fri:{
+//     open:o,close:c},
+// }=openingHours;
+// console.log(o,c);
