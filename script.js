@@ -1,3 +1,68 @@
+// const game  = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnabry',
+//       'Lewandowski',
+//     ],
+//   [
+//     'Burki',
+//     'Schulz',
+//     'Hummels',
+//     'Akanji',
+//     'Hakimi',
+//     'Weigl',
+//     'Witsel',
+//     'Hazard',
+//     'Brandt',
+//     'Sancho',
+//     'Gotze',
+//   ],
+// ],
+// score: '4:0',
+// scored: ['Lewandowski', 'Gnabry', 'Lewandowski', 'Hummels' ],
+// date:'Nov 9th, 2037',
+// odds:{
+//   team1:1.33,
+//   x: 3.25,
+//   team2:6.5,
+// },
+// };
+
+// const [players1, players2] = game.players;
+// console.log(players1,players2);
+// console.log(game.players);
+
+// const [gk, ...fieldPlayers]=players1;
+// console.log(gk, fieldPlayers);
+
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
+
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
+// const{odds:{team1,x:draw,team2}}= game;
+// console.log(team1,draw,team2);
+
+// const printGoals = function(...players){
+//   console.log(players);
+//   console.log(`${players.length} goals were scored`);
+// };
+// printGoals('Davies','Muller', 'Lewandowski', 'Kimmich');
+
+// printGoals(...game.scored);
+// team1 < team2 && console.log('Team 1 is more liekly to win');
+// team1>team2 && console.log('Team 2 is more liekly to win');
+
 'use strict';
 
 // Data needed for a later exercise
@@ -45,32 +110,41 @@ const restaurant = {
   }
 };
 
-const rest1={
-  name: "Capri",
-  numGuests: 20,
-};
 
-const rest2={
-  name: "La Piazza",
-  owner:'Giovanni Rossi',
-};
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-// rest1.numGuests = rest1.numGuests || 10;
-// rest2.numGuests = rest2.numGuests || 10;
+for (const item of menu) console.log(item);
 
-// rest1.numGuests ||=10;
-// rest2.numGuests ||=10;
+for (const [i,el] of menu.entries()){
+  console.log(`${i+1}: ${el}`);
+}
 
-rest1.numGuests ??=10;
-rest2.numGuests ??=10;
+// const rest1={
+//   name: "Capri",
+//   numGuests: 20,
+// };
 
-// rest1.owner = rest2.owner && '<Anonymous>';
-// rest2.owner = rest2.owner && '<Anonymous>';
-rest1.owenr &&= '<Anonymous>';
-rest2.owner &&='<Anonymous>';
+// const rest2={
+//   name: "La Piazza",
+//   owner:'Giovanni Rossi',
+// };
 
-console.log(rest1);
-console.log(rest2);
+// // rest1.numGuests = rest1.numGuests || 10;
+// // rest2.numGuests = rest2.numGuests || 10;
+
+// // rest1.numGuests ||=10;
+// // rest2.numGuests ||=10;
+
+// rest1.numGuests ??=10;
+// rest2.numGuests ??=10;
+
+// // rest1.owner = rest2.owner && '<Anonymous>';
+// // rest2.owner = rest2.owner && '<Anonymous>';
+// rest1.owenr &&= '<Anonymous>';
+// rest2.owner &&='<Anonymous>';
+
+// console.log(rest1);
+// console.log(rest2);
 
 
 
