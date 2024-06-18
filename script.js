@@ -1,67 +1,3 @@
-// const game  = {
-//   team1: 'Bayern Munich',
-//   team2: 'Borussia Dortmund',
-//   players: [
-//     [
-//       'Neuer',
-//       'Pavard',
-//       'Martinez',
-//       'Alaba',
-//       'Davies',
-//       'Kimmich',
-//       'Goretzka',
-//       'Coman',
-//       'Muller',
-//       'Gnabry',
-//       'Lewandowski',
-//     ],
-//   [
-//     'Burki',
-//     'Schulz',
-//     'Hummels',
-//     'Akanji',
-//     'Hakimi',
-//     'Weigl',
-//     'Witsel',
-//     'Hazard',
-//     'Brandt',
-//     'Sancho',
-//     'Gotze',
-//   ],
-// ],
-// score: '4:0',
-// scored: ['Lewandowski', 'Gnabry', 'Lewandowski', 'Hummels' ],
-// date:'Nov 9th, 2037',
-// odds:{
-//   team1:1.33,
-//   x: 3.25,
-//   team2:6.5,
-// },
-// };
-
-// const [players1, players2] = game.players;
-// console.log(players1,players2);
-// console.log(game.players);
-
-// const [gk, ...fieldPlayers]=players1;
-// console.log(gk, fieldPlayers);
-
-// const allPlayers = [...players1, ...players2];
-// console.log(allPlayers);
-
-// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
-// const{odds:{team1,x:draw,team2}}= game;
-// console.log(team1,draw,team2);
-
-// const printGoals = function(...players){
-//   console.log(players);
-//   console.log(`${players.length} goals were scored`);
-// };
-// printGoals('Davies','Muller', 'Lewandowski', 'Kimmich');
-
-// printGoals(...game.scored);
-// team1 < team2 && console.log('Team 1 is more liekly to win');
-// team1>team2 && console.log('Team 2 is more liekly to win');
 
 'use strict';
 
@@ -82,7 +18,7 @@ const hours= {
   },
 };
 
-// Data needed for a later exercise
+
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
@@ -98,7 +34,7 @@ const restaurant = {
       return [this.starterMenu[starterIndex],this.mainMenu[mainIndex]];
   },
 
-  hours,
+   hours,
 
   openingHours: {
     thu: {
@@ -129,21 +65,45 @@ const restaurant = {
   }
 };
 
+const properties = Object.keys(restaurant.openingHours);
+console.log(properties);
+
+let openStr= `We are open on ${properties.length} days: `;
+  for (const day of properties){
+    openStr+= `${day}, `;
+  }
+console.log(openStr);
+
+const values = Object.values(restaurant.openingHours);
+console.log(values);
+
+
+for (const day of Object.keys(restaurant.openingHours)){
+  console.log(day);
+}
+
+const entries =Object.entries(restaurant.openingHours);
+console.log(entries);
+
+for (const x of entries){
+  console.log(`On ${key} we open at ${open} and close at ${close}`)
+};
+
 // if (restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 
-console.log(restaurant.openingHours.mon?.open);
-console.log(restaurant.openingHours?.mon?.open);
-const days = ['mon','tue', 'wed','thu', 'fri','sat', 'sun'];
-for(const day of days){
-  console.log(day);
-  const open=restaurant.openingHours[day]?.open ??'closed';
-  console.log(`On ${day} we open at ${open}`);
-}
-console.log(restaurant.order?.(0,1)??'Method does not exist');
-console.log(restaurant.orderRisotto?.(0.1)??'Method does not exist');
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours?.mon?.open);
+// const days = ['mon','tue', 'wed','thu', 'fri','sat', 'sun'];
+// for(const day of days){
+//   console.log(day);
+//   const open=restaurant.openingHours[day]?.open ??'closed';
+//   console.log(`On ${day} we open at ${open}`);
+// }
+// console.log(restaurant.order?.(0,1)??'Method does not exist');
+// console.log(restaurant.orderRisotto?.(0.1)??'Method does not exist');
 
-const users = [{name: 'Jonas',emaile: 'hello@jonas.io'}];
-console.log(users[0]?.name ?? 'User array empty');
+// const users = [{name: 'Jonas',emaile: 'hello@jonas.io'}];
+// console.log(users[0]?.name ?? 'User array empty');
 
 // const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
@@ -304,4 +264,5 @@ console.log(users[0]?.name ?? 'User array empty');
 //   fri:{
 //     open:o,close:c},
 // }=openingHours;
-// console.log(o,c);
+// console.log(o,c)
+//
