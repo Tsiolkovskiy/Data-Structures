@@ -1,4 +1,3 @@
-
 'use strict';
 
 const weekdays = ['mon','tue', 'wed','thu', 'fri','sat', 'sun'];
@@ -65,204 +64,34 @@ const restaurant = {
   }
 };
 
-const properties = Object.keys(restaurant.openingHours);
-console.log(properties);
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
 
-let openStr= `We are open on ${properties.length} days: `;
-  for (const day of properties){
-    openStr+= `${day}, `;
-  }
-console.log(openStr);
+console.log(ordersSet);
+console.log(newSet('Jonas'));
 
-const values = Object.values(restaurant.openingHours);
-console.log(values);
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
 
+ordersSet.delete('Risotto');
+ordersSet.clear(ordersSet);
+console.log(ordersSet);
 
-for (const day of Object.keys(restaurant.openingHours)){
-  console.log(day);
-}
+for (const order of ordersSet) console.log(order); 
 
-const entries =Object.entries(restaurant.openingHours);
-console.log(entries);
+const staff = ["Waiter", 'Chef', 'Waiter', 'Manager','Chef', 'Waiter'];
 
-for (const x of entries){
-  console.log(`On ${key} we open at ${open} and close at ${close}`)
-};
+const staffUnique=[...new Set(staff)];
 
-// if (restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+console.log(staffUnique);
 
-// console.log(restaurant.openingHours.mon?.open);
-// console.log(restaurant.openingHours?.mon?.open);
-// const days = ['mon','tue', 'wed','thu', 'fri','sat', 'sun'];
-// for(const day of days){
-//   console.log(day);
-//   const open=restaurant.openingHours[day]?.open ??'closed';
-//   console.log(`On ${day} we open at ${open}`);
-// }
-// console.log(restaurant.order?.(0,1)??'Method does not exist');
-// console.log(restaurant.orderRisotto?.(0.1)??'Method does not exist');
-
-// const users = [{name: 'Jonas',emaile: 'hello@jonas.io'}];
-// console.log(users[0]?.name ?? 'User array empty');
-
-// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-
-// for (const item of menu) console.log(item);
-
-// for (const [i,el] of menu.entries()){
-//   console.log(`${i+1}: ${el}`);
-// }
-
-// const rest1={
-//   name: "Capri",
-//   numGuests: 20,
-// };
-
-// const rest2={
-//   name: "La Piazza",
-//   owner:'Giovanni Rossi',
-// };
-
-// // rest1.numGuests = rest1.numGuests || 10;
-// // rest2.numGuests = rest2.numGuests || 10;
-
-// // rest1.numGuests ||=10;
-// // rest2.numGuests ||=10;
-
-// rest1.numGuests ??=10;
-// rest2.numGuests ??=10;
-
-// // rest1.owner = rest2.owner && '<Anonymous>';
-// // rest2.owner = rest2.owner && '<Anonymous>';
-// rest1.owenr &&= '<Anonymous>';
-// rest2.owner &&='<Anonymous>';
-
-// console.log(rest1);
-// console.log(rest2);
-
-
-
-
-// restaurant.numGuests = 0;
-// const guests = restaurant.numGuests || 10;
-// console.log(guests);
-
-// const guestCorrect = restaurant.numGuests ?? 10;
-// console.log(guestCorrect);
-
-
-// console.log(3||'Jonas');
-// console.log(''||'Jonas');
-// console.log(true||'Jonas');
-// console.log(undefined||null);
-// console.log(undefined||0||''||'Hello'||23||null);
-
-// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-// console.log(guests1);
-
-// const guests2 =restaurant.numGuests || 10 
-// console.log(guests2);
-
-// console.log(0&&'Jonas');
-// console.log(7&&'Jonas');
-
-// if (restaurant.orderPizza){
-//     restaurant.orderPizza('mushrooms', 'spincach');
-// }
-
-// restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
-
-// const arr=[1,2,...[3,4]];
-
-// const [a,b, ...others]=[1,2,3,4,5];
-
-// console.log(a,b,others);
-
-
-// const [pizza, ,risotto, ...otherFood]=[...restaurant.mainMenu,...restaurant.starterMenu];
-
-// console.log(pizza,risotto,otherFood);
-// //objects
-// const {sat,...weekdays}= restaurant.openingHours;
-// console.log(weekdays);
-// //functions
-// const add = function(...numbers){
-//   let sum=0;
-//   for(let i=0;i<numbers.length;i++) sum+=numbers[i];
-//   console.log(sum)
-// }
-
-// add(2,3);
-// add(5,3,7,2);
-// add(8,2,5,3,2,1,4);
-
-// const x=[23,5,7];
-// add(...x);
-
-// restaurant.orderPizza('mushrooms','onions','olives','spinach');
-// restaurant.orderPizza('mushrooms');
-
-
-// const ingredients = [prompt('Let\'s make pasta! Ingredient 1?' ), prompt('Ingredient 2'), prompt("Ingredient 3"),];
-// console.log(ingredients);
-
-// restaurant.orderPasta(...ingredients)   ;
-
-// const newRestaurant = {foundedIn: 1998, ...restaurant, founder: 'Guiseppe'};
-// console.log(newRestaurant);
-
-// const restaurantCopy={...restaurant};
-// restaurantCopy.name = 'Ristorante Roma';
-
-
-
-
-// const arr=[7,8,9];
-// const badNewArr=[1,2, arr[0],arr[1], arr[2]];
-// console.log(badNewArr);
-
-// const newArr=[1,2,...arr];
-// console.log(newArr);
-
-// console.log(...newArr);
-// console.log(1,2,7,8,9);
-
-// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-// console.log(newMenu);
-
-// const mainMenuCopy = [...restaurant.mainMenu];
-// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-// console.log(menu);
-
-
-// restaurant.orderDelivery({
-//   time: '22:30',
-//   address: 'Via del Sole,21',
-//   mainIndex: 2,
-//   starterIndex: 2,
-// });
-
-
-
-
-// const{name,openingHours,categories}=restaurant;
-// console.log(name, openingHours,categories);
-
-// const{name:restaurantName, openingHours:hours, categories:tags}=restaurant;
-// console.log(restaurantName, hours, tags);
-
-// const{menu=[], starterMenu: starters=[]}=restaurant;
-// console.log(menu,starters);
-
-// let a=111;
-// let b = 999;
-// const obj={a:23, b:7, c:14};
-// ({a,b}=obj);
-// console.log(a,b);
-
-// const {
-//   fri:{
-//     open:o,close:c},
-// }=openingHours;
-// console.log(o,c)
-//
+console.log(new Set["Waiter", 'Chef', 'Waiter', 'Manager','Chef', 'Waiter'].size)
